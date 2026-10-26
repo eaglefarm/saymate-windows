@@ -11,6 +11,16 @@ Double-click `SayMate.exe`. Look for the blue information icon in the Windows no
 
 This is a self-contained native Windows executable; PowerShell is not required.
 
+## Build from source
+
+Install **Visual Studio 2022** or **Visual Studio Build Tools 2022** with the **.NET desktop build tools** workload. Open a **Developer Command Prompt for Visual Studio**, change to this project folder, and run:
+
+```bat
+msbuild SayMate.csproj /restore /p:Configuration=Release
+```
+
+Alternatively, double-click `Build SayMate.cmd` from a Visual Studio Developer Command Prompt. The compiled application is written to `bin\Release\SayMate.exe`.
+
 ## Neural Australian voice
 
 Right-click the notification icon and choose **Speech settings**. Enter the key and region for an Azure Speech resource. The preferred voice is `en-AU-NatashaNeural`; the key is encrypted for the current Windows account. If the service is unavailable or not configured, SayMate falls back to a locally installed Australian voice.
