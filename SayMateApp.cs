@@ -421,8 +421,13 @@ internal static class Program
     [STAThread]
     private static void Main()
     {
-        Application.EnableVisualStyles();
-        Application.SetCompatibleTextRenderingDefault(false);
-        Application.Run(new SayMateContext());
+        bool isFirstInstance;
+        using (var singleInstance = new Mutex(true, @"Local\SayMate.SingleInstance.7E434E8A", out isFirstInstance)) {
+            if (!isFirstInstance) return;
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new SayMateContext());
+            GC.KeepAlive(singleInstance);
+        }
     }
 }
