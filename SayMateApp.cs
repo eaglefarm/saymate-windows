@@ -82,8 +82,6 @@ internal sealed class SayMateContext : ApplicationContext
         timer = new System.Windows.Forms.Timer { Interval = 50 };
         timer.Tick += OnTimerTick;
         timer.Start();
-        tray.ShowBalloonTip(3000, "SayMate is running",
-            "Select one English word to translate, pronounce, or save it.", ToolTipIcon.Info);
     }
 
     private void OnTimerTick(object sender, EventArgs e)
